@@ -1,59 +1,84 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🌱 GrowGarden — Toko Tanaman Online (E-Commerce Web)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi web *e-commerce* penjualan tanaman hias dan perlengkapan berkebun yang dirancang dan dibangun secara mandiri menggunakan **Laravel** (arsitektur MVC), **MySQL**, dan **Tailwind CSS**. Proyek ini mencakup alur transaksi pelanggan hingga pengelolaan katalog inventaris oleh administrator.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🌟 Fitur Utama
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Sistem Otentikasi Pengguna**: Fitur registrasi dan login yang aman dengan pembagian hak akses (*role*) antara pembeli dan administrator.
+- **Katalog & Kategori Tanaman**: Penjelajahan produk berdasarkan pengelompokan kategori tanaman dengan tampilan antarmuka responsif berbasis Tailwind CSS.
+- **Keranjang Belanja (*Shopping Cart*)**: Pengelolaan item belanja secara dinamis (tambah produk, ubah kuantitas, hapus item) yang terintegrasi langsung dengan basis data relasional MySQL.
+- **Admin Dashboard & Manajemen Inventaris**: Panel kontrol intuitif untuk mengunggah produk baru (*product uploader*), mengatur kategori, memperbarui stok tanaman secara *real-time*, serta memantau pesanan.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🛠️ Teknologi yang Digunakan
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- **Backend Framework**: Laravel (PHP)
+- **Database**: MySQL (Relational Database)
+- **Frontend Styling**: Tailwind CSS, Blade Templating
+- **Tools & Environment**: Composer, Laragon / PHP Local Server, Git
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 📁 Struktur Direktori Utama
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```text
+├── app/
+│   ├── Http/Controllers/    # Logika bisnis (Auth, Produk, Keranjang, Admin Dashboard)
+│   └── Models/              # Model Eloquent & relasi database (User, Product, Category, Cart)
+├── database/
+│   ├── migrations/          # Skema tabel relasional MySQL
+│   └── seeders/             # Data awal kategori & akun admin
+├── resources/
+│   └── views/               # Antarmuka pengguna & admin berbasis Blade + Tailwind CSS
+└── routes/
+    └── web.php              # Definisi routing aplikasi web
 
-### Premium Partners
+🚀 Cara Menjalankan Proyek (Lokal)
+ * Clone repositori ini:
+   git clone [https://github.com/Avrlst/growgarden.git](https://github.com/Avrlst/growgarden.git)
+cd growgarden
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+ * Instal dependensi PHP dan Frontend:
+   composer install
+npm install && npm run build
 
-## Contributing
+ * Konfigurasi file environment:
+   Salin file .env.example menjadi .env, lalu sesuaikan pengaturan koneksi database MySQL kamu (DB_DATABASE, DB_USERNAME, DB_PASSWORD):
+   cp .env.example .env
+php artisan key:generate
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+ * Jalankan migrasi database:
+   php artisan migrate --seed
 
-## Code of Conduct
+ * Jalankan server pengembangan lokal:
+   php artisan serve
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+   Akses aplikasi melalui browser di http://127.0.0.1:8000.
+👤 Pengembang
+Avrilistianto Ananda Nabil
+ * GitHub: @Avrlst
+ * Portofolio: avrilistianto-portofolio.vercel.app
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Cara Memasang ke Repositori GitHub:
 
-## License
+1. Buka repositori **GrowGarden** di akun GitHub `@Avrlst` (atau jalankan melalui terminal di folder proyek Laravel lokal kamu).
+2. Jika melalui browser: klik **Add file** > **Create new file** (atau edit file `README.md` yang sudah ada), tempel kode di atas, lalu klik **Commit changes**.
+3. Jika melalui terminal PowerShell di folder proyek:
+   ```powershell
+   git add README.md
+   git commit -m "docs: add README.md for GrowGarden e-commerce"
+   git push origin main
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## System Analysis & Database Design
+
+Perancangan arsitektur sistem, pemodelan alur pengguna, dan skema database relasional (3NF) untuk aplikasi ini didokumentasikan secara lengkap pada halaman **[System Design Documentation](./docs/SYSTEM_DESIGN.md)**, yang mencakup:
+* **Use Case Diagram** (Pemisahan hak akses Customer & Admin)
+* **Activity Diagram & Flowchart** (Alur pemesanan, verifikasi pembayaran, dan pengelolaan inventaris)
+* **Entity Relationship Diagram (ERD)** (8 tabel relasional terintegrasi dengan MySQL)
+
+![ERD GrowGarden](./docs/diagrams/erd-database.png)
